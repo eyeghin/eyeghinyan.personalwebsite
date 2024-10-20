@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wheels of Discovery - Projects</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <style>
+        body {
+            background-color: #001f3f;
+            color: #ffdd00;
+            font-family: 'Montserrat', sans-serif;
+        }
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #001b33;
+            padding: 20px;
+        }
+        .header-content {
+            flex-grow: 1; 
+            text-align: center; 
+        }
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+            display: flex; 
+            justify-content: center; 
+        }
+        nav ul li {
+            margin-right: 15px;
+        }
+        nav ul li a {
+            color: #ffdd00;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        h1, h2 {
+            color: #ffdd00;
+            text-align: center; 
+        }
+        .social-icons {
+            display: flex;
+            gap: 15px;
+        }
+        .social-icons a {
+            color: #ffdd00;
+            font-size: 24px; 
+            text-decoration: none;
+        }
+        main {
+            padding: 20px;
+        }
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            justify-items: center; /* Center items */
+        }
+        .project-card {
+            background-color: #001b33;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
+            transition: transform 0.3s ease;
+            cursor: pointer;
+            text-align: center; /* Center text */
+        }
+        .project-card img {
+            width: 100%; 
+            height: 300px;
+            object-fit: cover;
+        }
+        .project-card h3 {
+            font-size: 1.4em;
+            padding: 15px;
+            margin: 0;
+            color: #ffdd00;
+            background-color: #001b33;
+        }
+        footer {
+            background-color: #001b33;
+            text-align: center;
+            padding: 20px;
+            margin-top: 20px;
+        }
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+        }
+        .modal-content {
+            margin: 15% auto;
+            display: block;
+            max-width: 80%;
+            max-height: 80%;
+        }
+        .close {
+            position: absolute;
+            top: 10px;
+            right: 25px;
+            color: #ffdd00;
+            font-size: 40px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        .close:hover, .close:focus {
+            color: #ffdd00;
+            text-decoration: none;
+            cursor: pointer;
+        }
+        .project-types {
+            margin-top: 40px;
+        }
+        .project-types-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            padding: 20px;
+        }
+        .type-card {
+            background-color: #001b33;
+            border-radius: 8px;
+            padding: 10px;
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+        .type-card:hover {
+            transform: translateY(-5px);
+        }
+        .type-card img {
+            width: 100px; /* Small size for type images */
+            height: auto;
+            margin-bottom: 10px;
+        }
+        .type-card h3 {
+            font-size: 1.2em;
+            color: #ffdd00;
+            margin: 10px 0;
+        }
+        .learn-more {
+            display: inline-block;
+            background-color: #ffdd00;
+            color: #001b33;
+            padding: 10px 15px;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+        .learn-more:hover {
+            background-color: #ffcc00;
+        }
+
+        /* New Styles for the Poll Section */
+        .poll-section {
+            margin-top: 40px;
+            padding: 20px;
+            background-color: #001b33;
+            border-radius: 8px;
+        }
+        .poll-section h2 {
+            margin-bottom: 20px;
+        }
+        .poll-option {
+            margin-bottom: 10px;
+        }
+        .poll-button {
+            background-color: #ffdd00;
+            color: #001b33;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .poll-button:hover {
+            background-color: #ffcc00;
+        }
+
+        @media (max-width: 768px) {
+            .project-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <h1>Wheels of Discovery</h1>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="projects.html">Projects</a></li>
+                    <li><a href="contacts.html">Contact Me</a></li>
+                    <img src="LOGO ERASMUS.jpg" alt="Erasmus+ Logo" class="erasmus-logo" />
+
+                </ul>
+            </nav>
+        </div>
+        <div class="social-icons">
+            <a href="https://www.linkedin.com/in/erik-yeghinyan/" target="_blank">
+                <i class="fab fa-linkedin"></i>
+            </a>
+            <a href="https://www.instagram.com/erik_yeghinyan/" target="_blank">
+                <i class="fab fa-instagram"></i>
+            </a>
+            <a href="https://www.tiktok.com/@erik_yeghinyan" target="_blank">
+                <i class="fab fa-tiktok"></i>
+                <img src="LOGO ERASMUS.jpg" alt="Erasmus+ Logo" class="erasmus-logo" />
+
+            </a>
+        </div>
+    </header>
+    <main>
+        <h2>Latest Projects</h2>
+        <div class="project-grid">
+            <div class="project-card">
+                <img src="TOUR KAUANS ERASMUS.jpg" alt="Kaunas Erasmus Project" onclick="openModal(this)">
+                <h3>Youth Exchange in Kaunas, Lithuania</h3>
+            </div>
+            <div class="project-card">
+                <img src="ERASMUS GROUP PIC.jpg" alt="Training Course in Lithuania" onclick="openModal(this)">
+                <h3>Training Course in Lithuania</h3>
+            </div>
+            <div class="project-card">
+                <img src="Erasmus unity pic.JPG" alt="Social Innovation Workshop" onclick="openModal(this)">
+                <h3>Social Innovation Workshop</h3>
+            </div>
+            <div class="project-card">
+                <img src="ERASMUS SEMINAR 1.JPG" alt="Leadership Program" onclick="openModal(this)">
+                <h3>Leadership Program</h3>
+            </div>
+            <div class="project-card">
+                <img src="Erasmus 1s project.JPG" alt="Social Workshop" onclick="openModal(this)">
+                <h3>Social Workshop</h3>
+            </div>
+            <div class="project-card">
+                <img src="Erasmus bye pic.JPG" alt="Cultural Exchange in Belgium" onclick="openModal(this)">
+                <h3>Cultural Exchange in Belgium</h3>
+            </div>
+        </div>
+
+        <div class="project-types">
+            <h2>Types of Erasmus+ Projects</h2>
+            <div class="project-types-grid">
+                <div class="type-card">
+                    <img src="VOLUNT.jpg" alt="Volunteering Projects">
+                    <h3>Volunteering Projects</h3>
+                    <p>Participate in meaningful volunteer work that makes a difference in communities.</p>
+                    <a href="https://erasmus-plus.ec.europa.eu/get-support/volunteering" class="learn-more" target="_blank">Learn More</a>
+                </div>
+                <div class="type-card">
+                    <img src="YOUTH.jpg" alt="Youth Exchanges">
+                    <h3>Youth Exchanges</h3>
+                    <p>Engage with peers from different cultures through exciting exchanges.</p>
+                    <a href="https://erasmus-plus.ec.europa.eu/get-support/youth-exchanges" class="learn-more" target="_blank">Learn More</a>
+                </div>
+                <div class="type-card">
+                    <img src="TRAINING.jpg"Training Courses">
+                    <h3>Training Courses</h3>
+                    <p>Enhance your skills and knowledge through specialized training courses.</p>
+                    <a href="https://erasmus-plus.ec.europa.eu/get-support/training-courses" class="learn-more" target="_blank">Learn More</a>
+                </div>
+                <div class="type-card">
+                    <img src="SEMINAR ER.jpg"Seminars">
+                    <h3>Seminars</h3>
+                    <p>Participate in seminars that promote discussion and networking.</p>
+                    <a href="https://erasmus-plus.ec.europa.eu/get-support/seminars" class="learn-more" target="_blank">Learn More</a>
+                </div>
+                <div class="type-card">
+                    <img src="EXCHANGE.jpg" alt="University Exchanges">
+                    <h3>University Exchanges</h3>
+                    <p>Experience studying abroad with exciting university exchange programs.</p>
+                    <a href="https://erasmus-plus.ec.europa.eu/get-support/university-exchange" class="learn-more" target="_blank">Learn More</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="project-participation">
+            <h2>Which Erasmus+ Program Would You Like to Participate In?</h2>
+            <p>Your input helps shape future opportunities! Please choose one option below:</p>
+            <form action="mailto:eyeghinyan@gmail.com" method="post" enctype="text/plain">
+                <div class="options">
+                    <label>
+                        <input type="radio" name="program" value="Volunteering Projects" required>
+                        Volunteering Projects
+                    </label>
+                    <label>
+                        <input type="radio" name="program" value="Study Exchange">
+                        Study Exchange
+                    </label>
+                    <label>
+                        <input type="radio" name="program" value="Youth Exchanges">
+                        Youth Exchanges
+                    </label>
+                    <label>
+                        <input type="radio" name="program" value="Training Courses">
+                        Training Courses
+                    </label>
+                    <label>
+                        <input type="radio" name="program" value="Seminars">
+                        Seminars
+                    </label>
+                </div>
+                <button type="submit" class="submit-button">Sign Up Here</button>
+            </form>
+        </div>
+        
+        <style>
+            .project-participation {
+                background-color: #001b33;
+                padding: 20px;
+                border-radius: 8px;
+                margin-top: 40px;
+                color: #ffdd00;
+                text-align: center;
+            }
+        
+            .options {
+                margin: 20px 0;
+            }
+        
+            .options label {
+                display: block;
+                margin: 10px 0;
+                font-size: 1.2em;
+            }
+        
+            .submit-button {
+                background-color: #ffdd00;
+                color: #001b33;
+                padding: 10px 20px;
+                border: none;
+                border-radius: 5px;
+                cursor: pointer;
+                font-size: 1.2em;
+                transition: background-color 0.3s;
+            }
+        
+            .submit-button:hover {
+                background-color: #ffcc00;
+            }
+        </style>
+        
+        
+        <style>
+            .project-preference {
+                background-color: #001b33; /* Matching the theme */
+                color: #ffdd00;
+                border-radius: 8px;
+                padding: 20px;
+                margin-top: 40px;
+                text-align: center;
+            }
+        
+            .preference-form {
+                margin: 20px 0;
+            }
+        
+            .preference-options {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
+        
+            .option {
+                background-color: #001f3f;
+                border: 2px solid #ffdd00;
+                border-radius: 5px;
+                margin: 10px 0;
+                padding: 10px;
+                width: 250px;
+                display: flex;
+                align-items: center;
+                cursor: pointer;
+                transition: background-color 0.3s, transform 0.3s;
+            }
+        
+            .option:hover {
+                background-color: #ffdd00;
+                transform: scale(1.05);
+                color: #001b33;
+            }
+        
+            .option input {
+                margin-right: 10px;
+            }
+        
+            .vote-button {
+                background-color: #ffdd00;
+                color: #001b33;
+                padding: 10px 15px;
+                border: none;
+                border-radius: 5px;
+                cursor: pointer;
+                transition: background-color 0.3s;
+            }
+        
+            .vote-button:hover {
+                background-color: #ffcc00;
+            }
+        
+            p {
+                margin-top: 20px;
+                color: #ffdd00;
+            }
+        </style>
+        
+        
+        <style>
+            .project-preference {
+                background-color: #001b33; /* Matching the theme */
+                color: #ffdd00;
+                border-radius: 8px;
+                padding: 20px;
+                margin-top: 40px;
+                text-align: center;
+            }
+        
+            .preference-form {
+                margin: 20px 0;
+            }
+        
+            .preference-options {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
+        
+            .option {
+                background-color: #001f3f;
+                border: 2px solid #ffdd00;
+                border-radius: 5px;
+                margin: 10px 0;
+                padding: 10px;
+                width: 250px;
+                display: flex;
+                align-items: center;
+                cursor: pointer;
+                transition: background-color 0.3s, transform 0.3s;
+            }
+        
+            .option:hover {
+                background-color: #ffdd00;
+                transform: scale(1.05);
+                color: #001b33;
+            }
+        
+            .option input {
+                margin-right: 10px;
+            }
+        
+            .vote-button {
+                background-color: #ffdd00;
+                color: #001b33;
+                padding: 10px 15px;
+                border: none;
+                border-radius: 5px;
+                cursor: pointer;
+                transition: background-color 0.3s;
+            }
+        
+            .vote-button:hover {
+                background-color: #ffcc00;
+            }
+        
+            p {
+                margin-top: 20px;
+                color: #ffdd00;
+            }
+        </style>
+s        
+        <footer>
+            <p>&copy; 2024 Wheels of Discovery. All rights reserved.</p>
+        </footer>
+    </main>
+
+    <script>
+        function openModal(img) {
+            var modal = document.createElement("div");
+            modal.className = "modal";
+            var imgElement = document.createElement("img");
+            imgElement.src = img.src;
+            imgElement.className = "modal-content";
+            var span = document.createElement("span");
+            span.className = "close";
+            span.innerHTML = "&times;";
+            span.onclick = function() {
+                modal.style.display = "none";
+                document.body.removeChild(modal);
+            }
+            modal.appendChild(span);
+            modal.appendChild(imgElement);
+            document.body.appendChild(modal);
+            modal.style.display = "block";
+        }
+
+        function submitVote() {
+            const selectedProject = document.querySelector('input[name="project"]:checked');
+            if (selectedProject) {
+                alert(`Thank you for voting for: ${selectedProject.value}`);
+            } else {
+                alert("Please select a project to vote.");
+            }
+        }
+    </script>
+</body>
+</html>

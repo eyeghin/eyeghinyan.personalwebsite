@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wheels of Discovery - Contact Me</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "Wheels of Discovery",
+        "sameAs": [
+            "https://www.facebook.com/your-profile",
+            "https://www.instagram.com/your-profile",
+            "https://www.tiktok.com/@your-profile",
+            "https://www.linkedin.com/in/your-profile"
+        ]
+    }
+    </script>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <style>
+        body {
+            background-color: #001f3f;
+            color: #ffdd00;
+            font-family: 'Montserrat', sans-serif;
+        }
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            background-color: #001b33;
+        }
+        .header-content {
+            flex-grow: 1;
+            text-align: center;
+        }
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+        }
+        nav ul li {
+            margin-right: 15px;
+        }
+        nav ul li a {
+            color: #ffdd00;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        h1, h2 {
+            color: #ffdd00;
+            text-align: center;
+        }
+        .social-icons {
+            display: flex;
+            gap: 15px;
+            align-items: center;
+            justify-content: center;
+        }
+        .social-icons a {
+            color: #ffdd00;
+            font-size: 20px;
+            text-decoration: none;
+        }
+        main {
+            padding: 20px;
+        }
+        .contact-info {
+            text-align: center; 
+            margin-bottom: 20px; 
+        }
+        .contact-info ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 10px 0;
+            display: inline-block; 
+        }
+        .contact-info li {
+            margin: 5px 0;
+        }
+        .contact-info a {
+            color: #ffdd00;
+            text-decoration: none;
+            border-bottom: 1px dotted #ffdd00; 
+            transition: color 0.3s, border-color 0.3s; 
+        }
+        .contact-info a:hover {
+            color: #ffd700;
+            border-color: #ffd700; 
+        }
+        .contact-form {
+            background-color: #001b33;
+            padding: 20px;
+            border-radius: 8px;
+            width: 100%;
+            max-width: 500px;
+            margin: 0 auto; 
+        }
+        .contact-form label {
+            margin-bottom: 5px;
+            display: block;
+        }
+        .contact-form input, .contact-form textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: none;
+            border-radius: 4px;
+            background-color: #001f3f;
+            color: #ffdd00;
+        }
+        .contact-form button {
+            background-color: #ffdd00;
+            color: #001f3f;
+            border: none;
+            padding: 10px;
+            border-radius: 4px;
+            cursor: pointer;
+            width: 100%; 
+        }
+        .contact-form button:hover {
+            background-color: #ffd700; 
+        }
+        footer {
+            background-color: #001b33;
+            text-align: center;
+            padding: 20px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <h1>Wheels of Discovery</h1>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="projects.html">Projects</a></li>
+                    <li><a href="contacts.html">Contact Me</a></li>
+                    <img src="LOGO ERASMUS.jpg" alt="Erasmus+ Logo" class="erasmus-logo" />
+
+                </ul>
+            </nav>
+        </div>
+        <div class="social-icons">
+            <a href="https://www.linkedin.com/in/erik-yeghinyan/" target="_blank">
+                <i class="fab fa-linkedin"></i>
+            </a>
+            <a href="https://www.instagram.com/erik_yeghinyan/" target="_blank">
+                <i class="fab fa-instagram"></i>
+            </a>
+            <a href="https://www.tiktok.com/@erik_yeghinyan" target="_blank">
+                <i class="fab fa-tiktok"></i>
+            </a>
+        </div>
+    </header>
+
+    <main>
+        <h1>Contact Me</h1>
+        <div class="contact-info">
+            <p>If you would like to get in touch, feel free to reach out through any of the following platforms:</p>
+            <ul>
+                <li>Email: <a href="mailto:example@email.com">eyeghinyan@gmail.com</a></li>
+                <li>Instagram: <a href="https://www.instagram.com/erik_yeghinyan/" target="_blank">@erik_yeghinyan</a></li>
+                <li>LinkedIn: <a href="https://www.linkedin.com/in/erik-yeghinyan/" target="_blank">Erik Yeghinyan</a></li>
+            </ul>
+
+        </div>
+        
+        <p>Alternatively, you can fill out the form below to send me a direct message. I’ll get back to you as soon as possible!</p>
+
+        <form class="contact-form">
+            <label for="name">Name & Surname</label>
+            <input type="text" id="name" placeholder="Your Name" required>
+
+            <label for="email">Email Address</label>
+            <input type="email" id="email" placeholder="Your Email" required>
+
+            <label for="comment">Your Message / Question</label>
+            <textarea id="comment" rows="5" placeholder="Type your message here..." required></textarea>
+
+            <button type="submit">Send Message</button>
+        </form>
+    </main>
+
+    <footer>
+        <p>“Fueled by Erasmus+, Powered by Discovery”</p>
+    </footer>
+</body>
+</html>
