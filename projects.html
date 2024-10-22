@@ -505,15 +505,6 @@ s
             document.body.appendChild(modal);
             modal.style.display = "block";
         }
-
-        function submitVote() {
-            const selectedProject = document.querySelector('input[name="project"]:checked');
-            if (selectedProject) {
-                alert(`Thank you for voting for: ${selectedProject.value}`);
-            } else {
-                alert("Please select a project to vote.");
-            }
-        }
     </script>
 </body>
 </html>
